@@ -30,7 +30,7 @@ class Post(models.Model):
     DRAFT = 'DR'
     PENDING = 'PE'
     PUBLISHED = 'PU'
-    POST_STATE_CHOICES = (
+    POST_STATUS_CHOICES = (
         (DRAFT, 'Draft'),
         (PENDING, 'Pending'),
         (PUBLISHED, 'Published'),
@@ -45,8 +45,8 @@ class Post(models.Model):
     author = models.ForeignKey(Author, on_delete=models.PROTECT)
     category = models.ForeignKey(Category, on_delete=models.PROTECT)
     tags = models.ManyToManyField(Tag)
-    state = models.CharField(
-        max_length=2, choices=POST_STATE_CHOICES, default=DRAFT)
+    status = models.CharField(
+        max_length=2, choices=POST_STATUS_CHOICES, default=DRAFT)
 
     def __str__(self):
         return self.title
