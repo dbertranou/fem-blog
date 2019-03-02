@@ -18,7 +18,7 @@
     </div>
     {% for item in content.category_posts %}
       {% if item.posts %}
-        <div class="{{ item.category.name|lower }}-wraper">
+        <div class="{{ item.category.name|lower }}-wrapper">
           <h2>{{ item.category.readable_name }}</h2>
           <br>
           {% for post in item.posts %}

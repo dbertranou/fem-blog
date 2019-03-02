@@ -18,32 +18,31 @@
   color: white;
 }
 
-.sociedad-wraper {
+div[class*="wrapper"]{
+  padding: 50px 30px 50px 50px;
+}
+
+.sociedad-wrapper {
   background: #a5c77f;
   color: white;
-  padding: 50px 30px 50px 50px;
 }
 
-.random-wraper {
+.random-wrapper {
   background: #ffc861;
   color: white;
-  padding: 50px 30px 50px 50px;
 }
 
-.informatica-wraper {
+.informatica-wrapper {
   background: #002f32;
   color: white;
-  padding: 50px 30px 50px 50px;
 }
 
-.industria-wraper {
+.industria-wrapper {
   background: #c84663;
   color: white;
-  padding: 50px 30px 50px 50px;
 }
 
-.ocio-wraper {
+.ocio-wrapper {
   background: #42826c;
   color: white;
-  padding: 50px 30px 50px 50px;
 }
