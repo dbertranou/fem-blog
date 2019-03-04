@@ -5,7 +5,7 @@ from . models import Post, Category
 def index(request):
     ctx = {}
     content = {}
-    content['latest_posts'] = Post.objects.all().order_by('-published')[:4]
+    content['latest_posts'] = Post.objects.all()[:4]
     content['category_posts'] = [{
         'category': cat,
         'posts': Post.objects.filter(category=cat).order_by('-published')[:3]}
