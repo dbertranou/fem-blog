@@ -18,24 +18,14 @@
     <div class="latest-posts">
       <h2>Últimos posts</h2>
       <ul class="latest-posts-list">
-        <li class="post">
-          <img src="https://picsum.photos/1200/1200/?random" alt="post image">
-          <p class="post__title">Un titulito bastante largo como para ver qué ondita</p>
-          <p class="post__summary">Un repaso por un tema re interesante y polémico que nos encontramos diariamente.</p>
-          <p class="post__author">Por <span class="name">Ada Lovelace</span></p>
-        </li>
-        <li class="post">
-          <img src="https://picsum.photos/401/401/?random" alt="post image">
-          <p class="post__title">Un titulito bastante largo como para ver qué ondita</p>
-          <p class="post__summary">Un repaso por un tema re interesante y polémico que nos encontramos diariamente.</p>
-          <p class="post__author">Publicado el 21/04/2018 por <span class="name">Ada Lovelace</span></p>
-        </li>
-        <li class="post">
-          <img src="https://picsum.photos/402/402/?random" alt="post image">
-          <p class="post__title">Un titulito bastante largo como para ver qué ondita</p>
-          <p class="post__summary">Un repaso por un tema re interesante y polémico que nos encontramos diariamente.</p>
-          <p class="post__author">Publicado el 21/04/2018 por <span class="name">Ada Lovelace</span></p>
-        </li>
+        {% for post in latest_posts %}
+          <li class="post">
+            <img src="{{ post.image }}" alt="post image">
+            <p class="post__title">{{ post.title }}</p>
+            <p class="post__summary">{{ post.summary }}</p>
+            <p class="post__author">Por <span class="name">{{ post.author.user.first_name }} {{ post.author.user.last_name }}</span></p>
+          </li>
+        {% endfor %}
       </ul>
     </div>
     <div class="category-posts">
