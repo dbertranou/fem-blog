@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from . models import Post, Category
 from femblog.settings import POSTS_PER_PAGE
 
@@ -15,7 +15,11 @@ def index(request):
     return render(request, 'blog/index.html', ctx)
 
 
-def categories(request, name):
-    posts = Post.objects.filter(
-        category__name__icontains=name).order_by('-published')
-    return render(request, 'blog/results.html', {'posts': posts})
+def category_posts(request, name):
+    ctx = {}
+    content = {}
+    category = get_object_or_404(Category, name=name)
+    content['category'] = category
+    content['posts'] = Post.objects.filter(category=category)
+    ctx['content'] = content
+    return render(request, 'blog/results.html', ctx)
