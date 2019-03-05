@@ -1,20 +1,139 @@
 <!DOCTYPE html>
-{% load static %}
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="{% static 'blog/css/blog.css' %}">
-    <link rel="shortcut icon" type="image/png" href="{% static 'blog/img/favicon.png' %}"/>
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
-    <title>Fem Blog</title>
-    </head>
-  <body>
-    <div class="title">
-      <h1>Fem Blog</h1>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <link rel="stylesheet" href="coso.css">
+<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+</head>
+<body>
+  <nav>
+    <h3>manso blog</h3>
+    <button id="open-sidebar-btn">-</button>
+  </nav>
+  <div class="spinner">
+    <img src="https://loading.io/spinners/double-ring/lg.double-ring-spinner.gif" alt="">
+  </div>
+  <div class="sidebar">
+    <button id="close-sidebar-btn">X</button>
+    <div class="sidebar-wrapper">
+      <h1>NOSOTRES</h1>
+      <h1>CONTACTO</h1>
+      <h1>APORTÁ</h1>
+      <br>
+      <h1>Categorías:</h1>
+      <ul>
+        <li>Category 1</li>
+        <li>Category 2</li>
+        <li>Category 3</li>
+        <li>Category 4</li>
+        <li>Category 5</li>
+      </ul>
+      <h1>Tags:</h1>
+      <ul>
+        <li>Arduino (3)</li>
+        <li>Gaming (5)</li>
+        <li>Python (8)</li>
+        <li>Tag 4 (1)</li>
+        <li>Tag 5 (5)</li>
+        <li>Tag 6 (6)</li>
+      </ul>
     </div>
-    <div>
-      {% block content %}
-      {% endblock %}
+  </div>
+  <div class="wrapper">
+    <div class="latest-posts">
+      <h2>Últimos posts</h2>
+      <ul class="latest-posts-list">
+        <li class="post">
+          <img src="https://picsum.photos/1200/1200/?random" alt="post image">
+          <p class="post__title">Un titulito bastante largo como para ver qué ondita</p>
+          <p class="post__summary">Un repaso por un tema re interesante y polémico que nos encontramos diariamente.</p>
+          <p class="post__author">Por <span class="name">Ada Lovelace</span></p>
+        </li>
+        <li class="post">
+          <img src="https://picsum.photos/401/401/?random" alt="post image">
+          <p class="post__title">Un titulito bastante largo como para ver qué ondita</p>
+          <p class="post__summary">Un repaso por un tema re interesante y polémico que nos encontramos diariamente.</p>
+          <p class="post__author">Publicado el 21/04/2018 por <span class="name">Ada Lovelace</span></p>
+        </li>
+        <li class="post">
+          <img src="https://picsum.photos/402/402/?random" alt="post image">
+          <p class="post__title">Un titulito bastante largo como para ver qué ondita</p>
+          <p class="post__summary">Un repaso por un tema re interesante y polémico que nos encontramos diariamente.</p>
+          <p class="post__author">Publicado el 21/04/2018 por <span class="name">Ada Lovelace</span></p>
+        </li>
+      </ul>
     </div>
-  </body>
+    <div class="category-posts">
+      <h2>Informática</h2>
+      <ul class="category-posts-list">
+        <li class="post">
+          <h3 class="post__title">Un titulito bastante largo como para ver qué ondita</h3>
+          <p class="post__summary">Un repaso por un tema re interesante y polémico que nos encontramos diariamente.</p>
+        </li>
+        <li class="post">
+          <h3 class="post__title">Un titulito bastante largo como para ver qué ondita</h3>
+          <p class="post__summary">Un repaso por un tema re interesante y polémico que nos encontramos diariamente.</p>
+        </li>
+        <li class="post">
+          <h3 class="post__title">Un titulito bastante largo como para ver qué ondita</h3>
+          <p class="post__summary">Un repaso por un tema re interesante y polémico que nos encontramos diariamente.</p>
+        </li>
+        <li class="post">
+          <h3 class="post__title">Un titulito bastante largo como para ver qué ondita</h3>
+          <p class="post__summary">Un repaso por un tema re interesante y polémico que nos encontramos diariamente.</p>
+        </li>
+      </ul>
+      <br>
+      <br>
+      <a class="more-posts" href="#">+ Más posts</a>
+    </div>
+
+    <footer>
+      <p>Copyleft 2019 - la fem</p>
+    </footer>
+  </div>
+  <script language="javascript">
+    let spinner = document.querySelector('.spinner');
+    let content = document.querySelector('.wrapper');
+    content.style.overflow = 'hidden';
+    content.style.position = 'fixed';
+    window.addEventListener('load', e => {
+      content.style.visibility = 'visible';
+      content.style.position = 'static';
+      spinner.style.display = 'none';
+    });
+
+    // --------------------------
+
+    let sidebar = document.querySelector('.sidebar');
+    let openBtn = document.querySelector('#open-sidebar-btn');
+    let closeBtn = document.querySelector('#close-sidebar-btn');
+    let sidebarIsOpen = false;
+
+    const openSidebar = () => {
+      sidebar.style.right = 0;
+      sidebarIsOpen = true;
+      document.body.style.overflowY = 'hidden';
+    }
+
+    const closeSidebar = () => {
+      sidebar.style.right = '-800px';
+      sidebarIsOpen = false;
+      document.body.style.overflowY = 'visible';
+    }
+
+    openBtn.addEventListener('click', e => {
+      openSidebar();
+      sidebarIsOpen = true;
+    });
+
+    closeBtn.addEventListener('click', e => {
+      closeSidebar();
+      sidebarIsOpen = false;
+    });
+
+  </script>
+</body>
 </html>
