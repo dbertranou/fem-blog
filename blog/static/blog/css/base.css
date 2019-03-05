@@ -88,6 +88,7 @@ nav h3 {
 
 .sidebar h1 {
   margin: 1rem 0;
+  font-size: 1.5rem;
 }
 
 .sidebar ul {
@@ -96,9 +97,10 @@ nav h3 {
 }
 
 .sidebar li {
-  padding: 0.5rem 3rem;
+  padding: 0.3rem 3rem;
   color: var(--primary-color);
-  font-size: 1.5rem;
+  font-size: 1.2rem;
+  font-weight: bold;
 }
 
 .wrapper {

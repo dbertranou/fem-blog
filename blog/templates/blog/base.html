@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title></title>
   <link rel="stylesheet" href="{% static 'blog/css/base.css' %}">
-<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 </head>
 <body>
   {% include 'blog/snippets/_nav.html' %}
@@ -19,38 +19,34 @@
       <h2>Últimos posts</h2>
       <ul class="latest-posts-list">
         {% for post in content.latest_posts %}
+        <a href="#">
           <li class="post">
-            <img src="http://placehold.it/400x400" alt="post image">
+            <img src="http://placehold.it/1400x1400" alt="post image">
             <p class="post__title">{{ post.title }}</p>
             <p class="post__summary">{{ post.summary }}</p>
             <p class="post__author">Por <span class="name">{{ post.author.user.first_name }}</span></p>
           </li>
+        </a>
         {% endfor %}
       </ul>
     </div>
     <div class="category-posts">
-      <h2>Informática</h2>
+      {% for item in content.category_posts %}
+      <h2>{{ item.category.readable_name }}</h2>
       <ul class="category-posts-list">
-        <li class="post">
-          <h3 class="post__title">Un titulito bastante largo como para ver qué ondita</h3>
-          <p class="post__summary">Un repaso por un tema re interesante y polémico que nos encontramos diariamente.</p>
-        </li>
-        <li class="post">
-          <h3 class="post__title">Un titulito bastante largo como para ver qué ondita</h3>
-          <p class="post__summary">Un repaso por un tema re interesante y polémico que nos encontramos diariamente.</p>
-        </li>
-        <li class="post">
-          <h3 class="post__title">Un titulito bastante largo como para ver qué ondita</h3>
-          <p class="post__summary">Un repaso por un tema re interesante y polémico que nos encontramos diariamente.</p>
-        </li>
-        <li class="post">
-          <h3 class="post__title">Un titulito bastante largo como para ver qué ondita</h3>
-          <p class="post__summary">Un repaso por un tema re interesante y polémico que nos encontramos diariamente.</p>
-        </li>
+        {% for post in item.posts %}
+        <a href="#">
+          <li class="post">
+            <h3 class="post__title">{{ post.title }}</h3>
+            <p class="post__summary">{{ post.summary }}</p>
+          </li>
+        </a>
+        {% endfor %}
       </ul>
       <br>
       <br>
-      <a class="more-posts" href="#">+ Más posts</a>
+      <a class="more-posts" href="{% url 'category-posts' name=item.category.name %}">+ Más posts</a>
+      {% endfor %}
     </div>
     {% include 'blog/snippets/_footer.html' %}
   </div>
