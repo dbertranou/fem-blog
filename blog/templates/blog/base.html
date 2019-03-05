@@ -30,8 +30,8 @@
         {% endfor %}
       </ul>
     </div>
+    {% for item in content.category_posts %}
     <div class="category-posts">
-      {% for item in content.category_posts %}
       <h2>{{ item.category.readable_name }}</h2>
       <ul class="category-posts-list">
         {% for post in item.posts %}
@@ -46,8 +46,8 @@
       <br>
       <br>
       <a class="more-posts" href="{% url 'category-posts' name=item.category.name %}">+ Más posts</a>
-      {% endfor %}
     </div>
+    {% endfor %}
     {% include 'blog/snippets/_footer.html' %}
   </div>
   <script type="text/javascript" src="{% static 'blog/js/spinner.js' %}"></script>

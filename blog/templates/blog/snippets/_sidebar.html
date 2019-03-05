@@ -7,11 +7,9 @@
     <br>
     <h1>Categorías:</h1>
     <ul>
-      <li>Category 1</li>
-      <li>Category 2</li>
-      <li>Category 3</li>
-      <li>Category 4</li>
-      <li>Category 5</li>
+      {% for item in content.category_posts %}
+      <a href="{% url 'category-posts' name=item.category.name %}"><li>{{ item.category.readable_name }}</li></a>
+      {% endfor %}
     </ul>
     <h1>Tags:</h1>
     <ul>

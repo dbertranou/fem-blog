@@ -34,15 +34,12 @@ nav {
   color: white;
 }
 
-nav h3 {
-  flex: 1;
-}
-
 #open-sidebar-btn {
   color: white;
   padding: 0.8rem;
   background: transparent;
   border: 0;
+  margin-left: auto;
 }
 
 #close-sidebar-btn {
@@ -162,8 +159,11 @@ nav h3 {
 
 .category-posts {
   width: 100%;
-  margin: 1rem 0;
+  /*margin: 1rem 0;*/
   position: relative;
+}
+
+.category-posts:nth-child(even) {
   background: var(--secondary-color);
 }
 
