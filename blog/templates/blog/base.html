@@ -14,7 +14,9 @@
     <img src="https://loading.io/spinners/double-ring/lg.double-ring-spinner.gif" alt="">
   </div>
   {% include 'blog/snippets/_sidebar.html' %}
-  {% block content %}{% endblock content %}
+  <div class="content">
+    {% block content %}{% endblock content %}
+  </div>
   {% include 'blog/snippets/_footer.html' %}
   </div>
   <script type="text/javascript" src="{% static 'blog/js/spinner.js' %}"></script>

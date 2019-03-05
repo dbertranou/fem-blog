@@ -1,5 +1,5 @@
 let spinner = document.querySelector('.spinner');
-let content = document.querySelector('.wrapper');
+let content = document.querySelector('.content');
 
 content.style.overflow = 'hidden';
 content.style.position = 'fixed';
