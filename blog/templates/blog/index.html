@@ -1,1 +1,37 @@
 {% extends 'blog/base.html' %}
+{% block content %}
+<div class="wrapper">
+  <div class="latest-posts">
+    <h2>Últimos posts</h2>
+    <ul class="latest-posts-list">
+      {% for post in content.latest_posts %}
+      <a href="#">
+        <li class="post">
+          <img src="http://placehold.it/1400x1400" alt="post image">
+          <p class="post__title">{{ post.title }}</p>
+          <p class="post__summary">{{ post.summary }}</p>
+          <p class="post__author">Por <span class="name">{{ post.author.user.first_name }}</span></p>
+        </li>
+      </a>
+      {% endfor %}
+    </ul>
+  </div>
+  {% for item in content.category_posts %}
+  <div class="category-posts">
+    <h2>{{ item.category.readable_name }}</h2>
+    <ul class="category-posts-list">
+      {% for post in item.posts %}
+      <a href="#">
+        <li class="post">
+          <h3 class="post__title">{{ post.title }}</h3>
+          <p class="post__summary">{{ post.summary }}</p>
+        </li>
+      </a>
+      {% endfor %}
+    </ul>
+    <br>
+    <br>
+    <a class="more-posts" href="{% url 'category-posts' name=item.category.name %}">+ Más posts</a>
+  </div>
+  {% endfor %}
+{% endblock content %}
