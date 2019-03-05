@@ -21,5 +21,12 @@ def category_posts(request, name):
     category = get_object_or_404(Category, name=name)
     content['category'] = category
     content['posts'] = Post.objects.filter(category=category)
+    return render(request, 'blog/results.html', ctx)
+
+
+def posts(request):
+    ctx = {}
+    content = {}
+    content['posts'] = Post.objects.all()
     ctx['content'] = content
     return render(request, 'blog/results.html', ctx)
