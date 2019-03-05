@@ -1,5 +1,4 @@
-from django.shortcuts import render
-from django.http import Http404
+from django.shortcuts import render, get_object_or_404
 from . models import Post, Category
 from femblog.settings import POSTS_PER_PAGE
 
@@ -19,10 +18,7 @@ def index(request):
 def category_posts(request, name):
     ctx = {}
     content = {}
-    try:
-        category = Category.objects.get(name=name)
-    except Category.DoesNotExist:
-        raise Http404('Not Found')
+    category = get_object_or_404(Category, name=name)
     content['category'] = category
     content['posts'] = Post.objects.filter(category=category)
     ctx['content'] = content
