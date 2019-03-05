@@ -18,12 +18,12 @@
     <div class="latest-posts">
       <h2>Últimos posts</h2>
       <ul class="latest-posts-list">
-        {% for post in latest_posts %}
+        {% for post in content.latest_posts %}
           <li class="post">
-            <img src="{{ post.image }}" alt="post image">
+            <img src="http://placehold.it/400x400" alt="post image">
             <p class="post__title">{{ post.title }}</p>
             <p class="post__summary">{{ post.summary }}</p>
-            <p class="post__author">Por <span class="name">{{ post.author.user.first_name }} {{ post.author.user.last_name }}</span></p>
+            <p class="post__author">Por <span class="name">{{ post.author.user.first_name }}</span></p>
           </li>
         {% endfor %}
       </ul>
