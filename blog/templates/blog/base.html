@@ -16,8 +16,8 @@
   {% include 'blog/snippets/_sidebar.html' %}
   <div class="content">
     {% block content %}{% endblock content %}
+    {% include 'blog/snippets/_footer.html' %}
   </div>
-  {% include 'blog/snippets/_footer.html' %}
   </div>
   <script type="text/javascript" src="{% static 'blog/js/spinner.js' %}"></script>
   <script type="text/javascript" src="{% static 'blog/js/sidebar.js' %}"></script>

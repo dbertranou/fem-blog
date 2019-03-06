@@ -10,7 +10,7 @@
           <img src="http://placehold.it/1400x1400" alt="post image">
           <p class="post__title">{{ post.title }}</p>
           <p class="post__summary">{{ post.summary }}</p>
-          <p class="post__author">Por <span class="name">{{ post.author.user.first_name }}</span></p>
+          <p class="post__author">Por <span class="name">{{ post.author.full_name }}</span></p>
         </li>
       </a>
       {% endfor %}
