@@ -1,33 +1,26 @@
 from django.shortcuts import render, get_object_or_404
-from . models import Post, Category
+from .models import Post, Category
 from femblog.settings import POSTS_PER_PAGE
 
 
 def index(request):
     ctx = {}
-    content = {}
-    content['latest_posts'] = Post.objects.all()[:POSTS_PER_PAGE]
-    content['category_posts'] = [{
+    ctx['latest_posts'] = Post.objects.all()[:POSTS_PER_PAGE]
+    ctx['category_posts'] = [{
         'category': cat,
         'posts': Post.objects.filter(category=cat)[:POSTS_PER_PAGE]}
         for cat in Category.objects.all()]
-    ctx['content'] = content
     return render(request, 'blog/index.html', ctx)
 
 
-def category_posts(request, name):
+def posts(request, category_name=None):
     ctx = {}
-    content = {}
-    category = get_object_or_404(Category, name=name)
-    content['category'] = category
-    content['posts'] = Post.objects.filter(category=category)
-    ctx['content'] = content
-    return render(request, 'blog/results.html', ctx)
-
-
-def posts(request):
-    ctx = {}
-    content = {}
-    content['posts'] = Post.objects.all()
-    ctx['content'] = content
+    criteria = {}
+    title = 'Últimos posts'
+    if category_name:
+        category = get_object_or_404(Category, name=category_name)
+        title = category.readable_name
+        criteria['category'] = category
+    ctx['posts'] = Post.objects.filter(**criteria)
+    ctx['title'] = title
     return render(request, 'blog/results.html', ctx)
