@@ -26,8 +26,9 @@ closeBtn.addEventListener('click', e => {
   sidebarIsOpen = false;
 });
 
-// populate sidebar categories
+// populate sidebar categories and tags
 let sidebarCategories = document.querySelector('.sidebar-categories');
+let sidebarTags = document.querySelector('.sidebar-tags');
 
 fetch('/api/filters')
   .then(response => response.json())
@@ -40,21 +41,9 @@ fetch('/api/filters')
       li.appendChild(a);
       sidebarCategories.appendChild(li)
     });
-  });
-
-// populate sidebar tags
-let sidebarTags = document.querySelector('.sidebar-tags');
-
-fetch('/api/filters')
-  .then(response => response.json())
-  .then(json => {
     json.tags.map(item => {
-      //a = document.createElement('a');
-      //a.setAttribute('href', item.url);
-      //a.innerText = item.name;
       li = document.createElement('li');
       li.innerText = item.readable_name;
-      //li.appendChild(a);
       sidebarTags.appendChild(li)
     });
   });
