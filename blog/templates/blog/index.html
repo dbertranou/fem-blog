@@ -5,7 +5,7 @@
     <h2>Últimos posts</h2>
     <ul class="latest-posts-list">
       {% for post in latest_posts %}
-      <a href="#">
+      <a href="{% url 'post-detail' slug=post.slug %}">
         <li class="post">
           <img src="http://placehold.it/1400x1400" alt="post image">
           <p class="post__title">{{ post.title }}</p>
@@ -21,7 +21,7 @@
     <h2>{{ item.category.readable_name }}</h2>
     <ul class="category-posts-list">
       {% for post in item.posts %}
-      <a href="#">
+      <a href="{% url 'post-detail' slug=post.slug %}">
         <li class="post">
           <h3 class="post__title">{{ post.title }}</h3>
           <p class="post__summary">{{ post.summary }}</p>
