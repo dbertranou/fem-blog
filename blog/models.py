@@ -10,6 +10,9 @@ class Author(models.Model):
 
 
 class Category(models.Model):
+    class Meta:
+        ordering = ('name',)
+
     name = models.CharField(max_length=50, unique=True)
     readable_name = models.CharField(max_length=50)
 
@@ -18,6 +21,9 @@ class Category(models.Model):
 
 
 class Tag(models.Model):
+    class Meta:
+        ordering = ('name',)
+
     name = models.CharField(max_length=50, unique=True)
     readable_name = models.CharField(max_length=50)
 
