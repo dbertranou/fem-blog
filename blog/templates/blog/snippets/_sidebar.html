@@ -6,19 +6,8 @@
     <h1>APORTÁ</h1>
     <br>
     <h1>Categorías:</h1>
-    <ul>
-      {% for item in content.category_posts %}
-      <a href="{% url 'category-posts' name=item.category.name %}"><li>{{ item.category.readable_name }}</li></a>
-      {% endfor %}
-    </ul>
+    <ul class="sidebar-categories"></ul>
     <h1>Tags:</h1>
-    <ul>
-      <li>Arduino (3)</li>
-      <li>Gaming (5)</li>
-      <li>Python (8)</li>
-      <li>Tag 4 (1)</li>
-      <li>Tag 5 (5)</li>
-      <li>Tag 6 (6)</li>
-    </ul>
+    <ul class="sidebar-tags"></ul>
   </div>
 </div>

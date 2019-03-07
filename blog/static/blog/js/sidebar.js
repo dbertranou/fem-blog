@@ -1,3 +1,4 @@
+// toggle sidebar
 let sidebar = document.querySelector('.sidebar');
 let openBtn = document.querySelector('#open-sidebar-btn');
 let closeBtn = document.querySelector('#close-sidebar-btn');
@@ -24,3 +25,36 @@ closeBtn.addEventListener('click', e => {
   closeSidebar();
   sidebarIsOpen = false;
 });
+
+// populate sidebar categories
+let sidebarCategories = document.querySelector('.sidebar-categories');
+
+fetch('/api/filters')
+  .then(response => response.json())
+  .then(json => {
+    json.categories.map(item => {
+      a = document.createElement('a');
+      a.setAttribute('href', item.url);
+      a.innerText = item.name;
+      li = document.createElement('li');
+      li.appendChild(a);
+      sidebarCategories.appendChild(li)
+    });
+  });
+
+// populate sidebar tags
+let sidebarTags = document.querySelector('.sidebar-tags');
+
+fetch('/api/filters')
+  .then(response => response.json())
+  .then(json => {
+    json.tags.map(item => {
+      //a = document.createElement('a');
+      //a.setAttribute('href', item.url);
+      //a.innerText = item.name;
+      li = document.createElement('li');
+      li.innerText = item.readable_name;
+      //li.appendChild(a);
+      sidebarTags.appendChild(li)
+    });
+  });
