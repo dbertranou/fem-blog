@@ -1,4 +1,10 @@
 {% extends 'blog/base.html' %}
+{% load static %}
+
+{% block head %}
+  <link rel="stylesheet" href="{% static 'blog/css/index.css' %}">
+{% endblock head %}
+
 {% block content %}
 <div class="wrapper">
   <div class="latest-posts">
