@@ -7,7 +7,7 @@
       {% for post in latest_posts %}
       <a href="{% url 'post-detail' slug=post.slug %}">
         <li class="post">
-          <img src="http://placehold.it/1400x1400" alt="post image">
+          <img src="{% if post.image %}{{ post.image }}{% else %}http://placehold.it/1200x1200{% endif %}" alt="post image">
           <p class="post__title">{{ post.title }}</p>
           <p class="post__summary">{{ post.summary }}</p>
           <p class="post__author">Por <span class="name">{{ post.author.full_name }}</span></p>
