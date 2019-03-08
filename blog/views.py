@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import JsonResponse
+from django.urls import reverse
 from .models import Post, Category, Tag
 from femblog.settings import POSTS_PER_PAGE
 
@@ -36,6 +37,11 @@ def post_detail(request, slug):
 
 def filter_list(request):
     response = {}
-    response['categories'] = list(Category.objects.values())
+    response['categories'] = [{
+        'name': cat.readable_name,
+        'url': reverse('category-posts', args=[cat.name])} 
+        for cat in Category.objects.all()]
+
+    # TODO: needs an endpoint like category-posts
     response['tags'] = list(Tag.objects.values())
     return JsonResponse(response)

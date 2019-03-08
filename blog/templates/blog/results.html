@@ -1,10 +1,10 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
-  <div class="{{ content.category.name|lower }}-wrapper">
-    <h2>{{ content.category.readable_name }}</h2>
+  <div class="{{ category.name|lower }}-wrapper">
+    <h2>{{ category.readable_name }}</h2>
       <br>
-      {% for post in content.posts %}
+      {% for post in posts %}
         <div>
           <h3>{{ post.title }}</h3>
           <p>Por: {{ post.author.user.username }}</p>

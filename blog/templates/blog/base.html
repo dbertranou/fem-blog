@@ -1,20 +1,26 @@
 <!DOCTYPE html>
 {% load static %}
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="{% static 'blog/blog.css' %}">
-    <link rel="shortcut icon" type="image/png" href="{% static 'blog/favicon.png' %}"/>
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
-    <title>Fem Blog</title>
-    </head>
-  <body>
-    <div class="title">
-      <h1>Fem Blog</h1>
-    </div>
-    <div>
-      {% block content %}
-      {% endblock %}
-    </div>
-  </body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <link rel="stylesheet" href="{% static 'blog/css/base.css' %}">
+  {% block head %}{% endblock %}
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+</head>
+<body>
+  {% include 'blog/snippets/_nav.html' %}
+  <div class="spinner">
+    <img src="https://loading.io/spinners/double-ring/lg.double-ring-spinner.gif" alt="">
+  </div>
+  {% include 'blog/snippets/_sidebar.html' %}
+  <div class="content">
+    {% block content %}{% endblock content %}
+  </div>
+  {% include 'blog/snippets/_footer.html' %}
+  </div>
+  <script type="text/javascript" src="{% static 'blog/js/spinner.js' %}"></script>
+  <script type="text/javascript" src="{% static 'blog/js/sidebar.js' %}"></script>
+</body>
 </html>
