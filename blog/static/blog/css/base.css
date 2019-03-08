@@ -104,6 +104,7 @@ nav {
   visibility: hidden;
   padding-top: 4rem;
   background: rgb(245,245,245);
+  min-height: 100vh;
 }
 
 footer {
@@ -112,4 +113,5 @@ footer {
   text-align: center;
   background: #111;
   padding: 2rem;
+  visibility: hidden;
 }
