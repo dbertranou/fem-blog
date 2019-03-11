@@ -1,0 +1,19 @@
+ul {
+  margin-bottom: 3rem;
+}
+
+h1 {
+  margin: 2rem 1rem;
+}
+
+.post {
+  padding: 1rem;
+}
+
+.post:nth-child(odd) {
+  background: var(--secondary-color);
+}
+
+.posts-list .post a {
+  color: var(--primary-color);
+}

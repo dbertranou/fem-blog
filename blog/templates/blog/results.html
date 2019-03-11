@@ -1,18 +1,22 @@
 {% extends 'blog/base.html' %}
+{% load static %}
+
+{% block head %}
+  <link rel="stylesheet" href="{% static 'blog/css/results.css' %}">
+{% endblock head %}
 
 {% block content %}
-  <div class="{{ category.name|lower }}-wrapper">
-    <h2>{{ category.readable_name }}</h2>
-      <br>
-      {% for post in posts %}
-        <div>
-          <h3>{{ post.title }}</h3>
-          <p>Por: {{ post.author.user.username }}</p>
-          <p>{{ post.published }}</p>
-          <h4>{{ post.summary }}</h4>
-          <!-- <p>{{ post.body }}</p> -->
-          <br>
-        </div>
-      {% endfor %}
-    </div>
+  <h1>{{ title }}</h1>
+  <ul class="posts-list">
+  {% for post in posts %}
+    <li class="post">
+      <a href="{% url 'post-detail' slug=post.slug %}">
+        <h2 class="post__title">{{ post.title }}</h2>
+        <p class="post__summary">{{ post.summary }}</p>
+        <br>
+        <p class="post__author">Por <span class="name">{{ post.author.full_name }}</span></p>
+      </a>
+    </li>
+  {% endfor %}
+  </ul>
 {% endblock content %}
