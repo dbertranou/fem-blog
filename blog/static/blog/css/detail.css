@@ -1,0 +1,27 @@
+.wrapper {
+}
+
+.post__title {
+  margin: 1rem;
+  font-size: 7vw;
+}
+
+.post__body {
+  padding: 1rem;
+  font-size: 5vw;
+}
+
+.wrapper h2 {
+  margin: 1rem 0;
+}
+
+.wrapper a {
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+blockquote {
+  margin: 1rem 0.5rem;
+  padding: 1rem;
+  background: var(--secondary-color);
+}
