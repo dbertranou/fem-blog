@@ -18,12 +18,10 @@ const closeSidebar = () => {
 
 openBtn.addEventListener('click', e => {
   openSidebar();
-  sidebarIsOpen = true;
 });
 
 closeBtn.addEventListener('click', e => {
   closeSidebar();
-  sidebarIsOpen = false;
 });
 
 // populate sidebar categories and tags
