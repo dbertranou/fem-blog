@@ -7,13 +7,17 @@
 
 {% block content %}
   <div class="wrapper">
-    <h1 class="post__title">{{post.title}}</h1>
-    <img src="{{post.image}}" alt="">
+    <h1 class="post__title">{{ post.title }}</h1>
+    <img class="post__image" src="{{ post.image }}" alt="">
     <div class="post__summary">
-      {{post.summary|safe}}
+      {{ post.summary|safe }}
     </div>
     <div class="post__body">
-      {{post.body|safe}}
+      {{ post.body|safe }}
+    </div>
+    <div class="post__author">
+      <p class="post__author__name">{{ post.author.full_name }}</p>
+      <p class="post__pubdate">{{ post.published }}</p>
     </div>
   </div>
 {% endblock content %}

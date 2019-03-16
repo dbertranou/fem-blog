@@ -1,17 +1,28 @@
 .wrapper {
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+.post__image {
+  /*border-bottom: 0.4rem solid var(--primary-color);*/
 }
 
 .post__title {
   margin: 1rem;
-  font-size: 7vw;
+}
+
+.post__summary {
+  font-size: 0.8rem;
+  color: rgb(100,100,100);
+  padding: 1rem;
 }
 
 .post__body {
-  padding: 1rem;
-  font-size: 5vw;
+  padding: 0.6rem;
+  margin-bottom: 1rem;
 }
 
-.wrapper h2 {
+.wrapper h3 {
   margin: 1rem 0;
 }
 
@@ -23,5 +34,20 @@
 blockquote {
   margin: 1rem 0.5rem;
   padding: 1rem;
-  background: var(--secondary-color);
+  padding-left: 2rem;
+  border-left: 5px solid rgb(100, 100, 100);
+  background: rgba(200, 200, 200, 0.15);
+}
+
+.wrapper p {
+  text-align: justify;
+}
+
+.post__author {
+  background: #eee;
+  padding: 1rem;
+}
+
+.post__author__name {
+  font-weight: bold;
 }
