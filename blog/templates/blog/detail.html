@@ -1,11 +1,23 @@
 {% extends 'blog/base.html' %}
+{% load static %}
+
+{% block head %}
+  <link rel="stylesheet" href="{% static 'blog/css/detail.css' %}">
+{% endblock head %}
 
 {% block content %}
-  <div>
-    <h3>{{ post.title }}</h3>
-    <p>Por: {{ post.author.user.username }}</p>
-    <p>{{ post.published }}</p>
-    <h4>{{ post.summary }}</h4>
-    <p>{{ post.body }}</p>
+  <div class="wrapper">
+    <h1 class="post__title">{{ post.title }}</h1>
+    <div class="post__summary">
+      {{ post.summary|safe }}
+    </div>
+    <img class="post__image" src="{{ post.image }}" alt="">
+    <div class="post__body">
+      {{ post.body|safe }}
+    </div>
+    <div class="post__author">
+      <p class="post__author__name">{{ post.author.full_name }}</p>
+      <p class="post__pubdate">{{ post.published }}</p>
+    </div>
   </div>
 {% endblock content %}

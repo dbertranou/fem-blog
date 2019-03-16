@@ -1,0 +1,70 @@
+.wrapper {
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+.post__image {
+  /*border-bottom: 0.4rem solid var(--primary-color);*/
+}
+
+.post__title {
+  margin: 1rem;
+}
+
+.post__summary {
+  font-size: 1rem;
+  color: rgb(100,100,100);
+  padding: 1rem;
+}
+
+.post__body {
+  padding: 0.6rem;
+  margin-bottom: 1rem;
+}
+
+.wrapper h3 {
+  margin: 1rem 0;
+}
+
+.wrapper a {
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+.wrapper img {
+  margin: 1rem 0;
+}
+
+blockquote {
+  margin: 1rem 0.5rem;
+  padding: 1em 1rem;
+  border-left: 5px solid rgb(100, 100, 100);
+  background: rgba(200, 200, 200, 0.15);
+  quotes: "\201C""\201D""\2018""\2019";
+}
+
+blockquote:before {
+  color: #ccc;
+  content: open-quote;
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-right: 0.25em;
+  vertical-align: -0.4em;
+}
+
+blockquote p {
+  display: inline
+}
+
+.wrapper p {
+  text-align: justify;
+}
+
+.post__author {
+  background: #eee;
+  padding: 1rem;
+}
+
+.post__author__name {
+  font-weight: bold;
+}
