@@ -6,14 +6,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title></title>
   <link rel="stylesheet" href="{% static 'blog/css/base.css' %}">
+  <link rel="stylesheet" href="{% static 'blog/css/spinner.css' %}">
   {% block head %}{% endblock %}
   <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 </head>
 <body>
   {% include 'blog/snippets/_nav.html' %}
-  <div class="spinner">
-    <img src="https://loading.io/spinners/double-ring/lg.double-ring-spinner.gif" alt="">
+  <div class="spinner la-ball-clip-rotate-multiple la-2x">
+    <div></div>
+    <div></div>
   </div>
+  {% comment %}<div class="spinner">{% endcomment %}
+    {% comment %}<img src="https://loading.io/spinners/double-ring/lg.double-ring-spinner.gif" alt="">{% endcomment %}
+  {% comment %}</div>{% endcomment %}
   {% include 'blog/snippets/_sidebar.html' %}
   <div class="content">
     {% block content %}{% endblock content %}
