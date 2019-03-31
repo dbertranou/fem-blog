@@ -3,6 +3,13 @@
   width: 100%;
 }
 
+.post__category {
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  padding: 0 1rem;
+  color: rgba(50,50,50,0.4);
+}
+
 .post__image {
   /*border-bottom: 0.4rem solid var(--primary-color);*/
 }
